@@ -33,7 +33,7 @@ csv.write(columns, column_index, 'output.csv')
 ```
 
 ### Options
-```
+```lua
 -- second argument sets separator between values
 -- default is comma
 
