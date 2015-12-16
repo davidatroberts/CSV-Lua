@@ -1,15 +1,18 @@
 # CSV-Lua
 Lua library for easily reading/writing CSV files
 
-## Reading:
+### Reading:
 ```lua
 local csv = require('csv')
 
 local csv_file = csv.read(file_path)
-local column = csv_file['column_1']
+local column = csv_file['Header1']
+
+-- get the first value in column Header1
+local value = column[1]
 ```
 
-## Writing:
+### Writing:
 ```lua
 local csv = require('csv')
 
@@ -27,4 +30,15 @@ local columns = {
 }
 
 csv.write(columns, column_index, 'output.csv')
+```
+
+### Options
+```
+-- second argument sets separator between values
+-- default is comma
+
+local csv = require('csv')
+
+-- separate on space
+local csv_file = csv.read(file_path, ' ')
 ```
