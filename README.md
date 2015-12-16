@@ -1,2 +1,30 @@
 # CSV-Lua
 Lua library for easily reading/writing CSV files
+
+## Reading:
+```lua
+local csv = require('csv')
+
+local csv_file = csv.read(file_path)
+local column = csv_file['column_1']
+```
+
+## Writing:
+```lua
+local csv = require('csv')
+
+-- used to control the order in which the headers are output
+local column_index = {
+	'Header1', 'Header2', 'Header3', 'Header4'
+}
+
+-- columns, keys must match column index
+local columns = {
+	Header1 = {'something here', 'another thing'},
+	Header2 = {'a', 'b'},
+	Header3 = {1, 2},
+	Header4 = {'and another', 'here'}
+}
+
+csv.write(columns, column_index, 'output.csv')
+```
